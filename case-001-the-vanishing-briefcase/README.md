@@ -1,0 +1,39 @@
+# SQL Noir — Case #001: The Vanishing Briefcase
+## 📌 Scenario
+In gritty 1980s Los Angeles, a valuable briefcase disappeared from the Blue Note Lounge.
+A witness reported seeing a man in a trench coat fleeing the scene.
+My objective was to retrieve the crime scene report, identify the suspect matching the witness description, and confirm the culprit using interview transcripts.
+---
+## 🛠 Skills Demonstrated
+- Filtering with `WHERE`
+- Logical operators using `AND`
+- Matching multiple conditions
+- Using `IN` to evaluate multiple IDs
+- Cross-referencing data across tables
+---
+## 🧩 Investigation Queries (as executed)
+### 1) Retrieve the crime scene details
+select *
+from crime_scene
+where type = 'theft'
+and location = 'Blue Note Lounge'
+;
+### 2) Identify suspects matching witness description
+select *
+from suspects
+where attire = 'trench coat'
+and scar = 'left cheek'
+;
+### 3) Verify suspects using interview transcripts
+select *
+from interviews
+where suspect_id in (3,183)
+;
+### 4) Confirm the final suspect
+select *
+from suspects
+where id = 183
+;
+---
+## 🕵️ Case Conclusion
+**Culprit Identified:** Vincent Malone
